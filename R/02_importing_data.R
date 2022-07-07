@@ -22,7 +22,7 @@ length(data_list)
 # Inspecting data
 head(data_list$envir)
 dim(data_list$envir)
-summary(envir$envir)
+summary(data_list$envir)
 
 # Output 1: summary table ------------------------------------------------------
 
@@ -31,7 +31,7 @@ sd(envir$Clay)
 envir_mean <- apply(envir[, -1], 2, mean)
 envir_sd <- apply(envir[, -1], 2, sd)
 
-# Creating a function in R -----------------------------------------------------
+# Creating a function in R (standard deviation)---------------------------------
 std <- function(x, round = FALSE, ...) {
   std <- sd(x) / sqrt(length(x))
   if (round) std <- round(std, ...)
