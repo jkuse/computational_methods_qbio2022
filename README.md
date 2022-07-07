@@ -17,4 +17,3 @@ project/
 ```
 In the `R` directory you will find the scripts. Let's start using R!
 
-Creating repository on github
