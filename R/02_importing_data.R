@@ -20,9 +20,9 @@ names(data_list) <- cestes_names
 length(data_list)
 
 # Inspecting data
-head(data_list$envir)
-dim(data_list$envir)
-summary(data_list$envir)
+head(envir)
+dim(envir)
+summary(envir)
 
 # Output 1: summary table ------------------------------------------------------
 
@@ -31,7 +31,7 @@ sd(envir$Clay)
 envir_mean <- apply(envir[, -1], 2, mean)
 envir_sd <- apply(envir[, -1], 2, sd)
 
-# Creating a function in R (standard deviation)---------------------------------
+# Creating a function in R -----------------------------------------------------
 std <- function(x, round = FALSE, ...) {
   std <- sd(x) / sqrt(length(x))
   if (round) std <- round(std, ...)
