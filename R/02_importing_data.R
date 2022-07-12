@@ -91,3 +91,4 @@ comm_df$TaxonName <- NA
 for (sp in rownames(comm_df)) {
   comm_df[sp, "TaxonName"] <- data_list$splist$TaxonName[data_list$splist$TaxCode == sp]
 }
+
