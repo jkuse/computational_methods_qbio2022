@@ -170,3 +170,19 @@ write.csv(x = comm_total,
 sp1 <- filter(comm_total, TaxCode == "sp1", Elev > 3)
 
 View(sp1)
+dim(sp1)
+summary(sp1)
+
+# other way of filtering (the comma at the end means we are filtering rows)
+
+sp1_2 <- comm_total[comm_total$TaxCode == "sp1" & comm_total$Elev > 3,]
+dim(sp1_2)
+
+# select function
+
+selectTest <- select(comm_total, TaxCode, Abundance, Sites)
+head(selectTest)
+
+# could also be done by:
+selectTest2 <- comm_total[,c("TaxCode", "Abundance", "Sites")]
+head(selectTest2)
