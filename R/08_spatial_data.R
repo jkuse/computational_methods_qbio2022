@@ -87,3 +87,5 @@ is(tmax_data) #the data are a raster stack, several rasters piled
 dim(tmax_data) # number of rows, number of columns, number of layers
 extent(tmax_data)
 res(tmax_data)
+
+
