@@ -8,3 +8,7 @@
 # Avoid adding html
 
 *.html
+*.zip
+
+data/shapefiles
+data/raster

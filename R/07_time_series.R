@@ -39,3 +39,4 @@ ggplot(covid) +
 
 covid$roll_mean <- zoo::rollmean(covid$new_confirmed, 14, fill=NA)
 
+
