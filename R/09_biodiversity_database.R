@@ -1,9 +1,9 @@
 # biodiversity databases
 
-install.packages("rgbif")
-install.packages("Taxonstand")
-install.packages("CoordinateCleaner")
-install.packages("maps")
+#install.packages("rgbif")
+#install.packages("Taxonstand")
+#install.packages("CoordinateCleaner")
+#install.packages("maps")
 
 library(rgbif)
 library(Taxonstand)
@@ -38,7 +38,7 @@ dim(species.names)
 # TPL(): check if the taxonomic updates in the gbif data are correct.
 tax.check <- TPL(species.names)
 tax.check
-
+head(tax.check)
 # creating new object w/ original and new names after TPL
 new.tax <- data.frame(scientificName = species.names,
                       genus.new.TPL = tax.check$New.Genus,
@@ -48,7 +48,7 @@ new.tax <- data.frame(scientificName = species.names,
                                                      tax.check$New.Species))
 # now we are merging raw data and checked data
 myrsine.new.tax <- merge(myrsine.data, new.tax, by = "scientificName")
-
+names(myrsine.new.tax)
 # Exporting data after taxonomy check
 #dir.create("data/processed/", recursive = TRUE)
 write.csv(myrsine.new.tax,
@@ -103,3 +103,22 @@ write.csv(myrsine.new.geo2,
 # 1. data frame have information in decimal latitude and longitud to geometry (sf file)
 # 2. myrsine_sf (Sf) how to add to tmap?
 # 3. tmap_mode -> try to have an interactive map
+
+# Convert lat/long to a sf
+#turbine_sf <- turbine %>%
+ # st_as_sf(coords = c("xlong", "ylat"), crs=2163)
+library(sf)
+
+geo.clean.sf <- geo.clean %>%
+  st_as_sf(coords = c("decimalLongitude", "decimalLatitude"), crs=2163)
+
+myrsine.new.geo.sf <- myrsine.new.geo.sf %>%
+  st_as_sf(Coords = c("decimalLongitude", "decimalLatitude"), crs=2163)
+
+library(tmap)
+?tmap
+
+data("World")
+tm_shape(geo.clean.sf) +
+  tm_polygons(World)
+
