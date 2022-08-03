@@ -112,13 +112,11 @@ library(sf)
 geo.clean.sf <- geo.clean %>%
   st_as_sf(coords = c("decimalLongitude", "decimalLatitude"), crs=2163)
 
-myrsine.new.geo.sf <- myrsine.new.geo.sf %>%
-  st_as_sf(Coords = c("decimalLongitude", "decimalLatitude"), crs=2163)
 
 library(tmap)
 ?tmap
 
 data("World")
-tm_shape(geo.clean.sf) +
+tm_shape(World, geo.clean.sf) +
   tm_polygons(World)
 
