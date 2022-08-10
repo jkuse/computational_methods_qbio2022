@@ -9,7 +9,7 @@ output:
     df_print: paged
 abstract: |
   it will be worth reading the report
-bibliography: ../mybib.bib
+bibliography: export.bib
 csl: journal-of-ecology.csl
 ---
 
@@ -63,4 +63,4 @@ knitr::include_graphics("../figs/02_species_abundance.png")
 
 It is time to synthesize your results and relate your findings with theory.
 
-I will cite @Strassburg2020 here
+I will cite @Daru2021 here
