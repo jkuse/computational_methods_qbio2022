@@ -19,7 +19,7 @@ data(dune)
 table(dune.env$Management)
 
 # cluster analysis of the dune vegetation
-# We calculate two dissimlarity indices between sites: Bray-Curtis distance and Chord distance
+# We calculate two dissimilarity indices between sites: Bray-Curtis distance and Chord distance
 
 bray_distance <- vegdist(dune)
 
